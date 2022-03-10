@@ -10,8 +10,10 @@ namespace CheckLeapYear
             int YearInput = TakeInput();
             if (YearInput == -1)
                 Console.WriteLine("\nThe given Input is Invalid");
+            else if (IsLeapYear(YearInput))
+                Console.WriteLine("\n" + YearInput + " is a Leap Year.");
             else
-                Console.WriteLine("\nThe give Input is Valid");
+                Console.WriteLine("\n" + YearInput + " is not a Leap Year");
         }
 
         public static int TakeInput()
@@ -22,6 +24,14 @@ namespace CheckLeapYear
                 return int.Parse(Input);
             else
                 return -1;
+        }
+
+        public static bool IsLeapYear(int YearInput)
+        {
+            if (YearInput % 400 == 0 || (YearInput % 100 != 0 && YearInput % 4 == 0))
+                return true;
+            else
+                return false;
         }
     }
 }
